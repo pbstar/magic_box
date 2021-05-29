@@ -1,0 +1,14 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+a,button,span{
+  text-decoration: none;
+  -webkit-tap-highlight-color:transparent;
+}
+li{
+  list-style: none;
+}
+input,button{
+  outline-style: none !important;
+}

@@ -1,0 +1,77 @@
+/*
+ Navicat Premium Data Transfer
+
+ Source Server         : 219.234.8.132
+ Source Server Type    : MySQL
+ Source Server Version : 50553
+ Source Host           : 219.234.8.132:3306
+ Source Schema         : mcwebtop
+
+ Target Server Type    : MySQL
+ Target Server Version : 50553
+ File Encoding         : 65001
+
+ Date: 21/04/2021 08:25:27
+*/
+
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for user
+-- ----------------------------
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user`  (
+  `qqnumber` int(10) NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `viptime` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `sign` int(5) UNSIGNED ZEROFILL NOT NULL,
+  `inte` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '0',
+  PRIMARY KEY (`qqnumber`) USING BTREE
+) ENGINE = MyISAM CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of user
+-- ----------------------------
+INSERT INTO `user` VALUES (24612582, 'a123456', '10267903976', 00001, '11');
+INSERT INTO `user` VALUES (10001, '123456', '1620300776', 00000, '0');
+INSERT INTO `user` VALUES (123123, '123123123123', '1618058334', 00000, '0');
+INSERT INTO `user` VALUES (0, '123123123123', '1618099015', 00001, '0');
+INSERT INTO `user` VALUES (123, '123123123123', '1618099122', 00000, '0');
+INSERT INTO `user` VALUES (222222222, '123123123123', '1618099145', 00000, '0');
+INSERT INTO `user` VALUES (123123123, '123123123123', '1618099167', 00000, '0');
+INSERT INTO `user` VALUES (1, '2', '3', 00000, '0');
+INSERT INTO `user` VALUES (345345, '123123123123', '1618099328', 00000, '0');
+INSERT INTO `user` VALUES (1668239128, '123123123123Qq', '1618102846', 00000, '0');
+INSERT INTO `user` VALUES (123456, '123456aaa', '1618707646', 00001, '5');
+INSERT INTO `user` VALUES (246125823, '1234563', '1618210410', 00000, '0');
+INSERT INTO `user` VALUES (2147483647, '123456', '1618210685', 00000, '0');
+INSERT INTO `user` VALUES (246582333, '123456', '1618211480', 00000, '0');
+INSERT INTO `user` VALUES (1222333, '34534534', '1618211644', 00000, '0');
+INSERT INTO `user` VALUES (1234214, '123456', '1618211977', 00000, '0');
+INSERT INTO `user` VALUES (246125824, '122212', '1618212601', 00000, '0');
+INSERT INTO `user` VALUES (242582478, '122212', '1618212715', 00000, '0');
+INSERT INTO `user` VALUES (246132582, '123456', '1618212742', 00000, '0');
+INSERT INTO `user` VALUES (246125582, '123456', '1618212891', 00000, '0');
+INSERT INTO `user` VALUES (246122582, '123456', '1618213014', 00000, '0');
+INSERT INTO `user` VALUES (1234567, 'a123456', '1624617764', 00001, '15');
+INSERT INTO `user` VALUES (8888555, 'uu8888', '1618230647', 00000, '0');
+INSERT INTO `user` VALUES (123456789, 'a123456', '36210803211', 00000, '0');
+INSERT INTO `user` VALUES (4444444, 'asd123456', '1619696323', 00000, '0');
+INSERT INTO `user` VALUES (12345678, 'a12345678', '1618986536', 00001, '5');
+INSERT INTO `user` VALUES (12345, 'a123456', '1619006932', 00000, '0');
+
+-- ----------------------------
+-- Event structure for closeSign
+-- ----------------------------
+DROP EVENT IF EXISTS `closeSign`;
+delimiter ;;
+CREATE EVENT `closeSign`
+ON SCHEDULE
+EVERY '1' DAY STARTS '2021-04-16 00:00:01'
+ON COMPLETION PRESERVE
+DO update user SET sign = '0'
+;;
+delimiter ;
+
+SET FOREIGN_KEY_CHECKS = 1;
